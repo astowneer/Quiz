@@ -7,12 +7,12 @@ import { FlashcardCategory } from "@prisma/client";
 import { useActionState } from "react";
 import { removeFlashcardSet } from "@/app/actions/actions";
 
-interface QuizFlashcardProps {
+interface QuizCollectionProps {
   categories: FlashcardCategory[];
   flashcardCountInEachCategory: number[];
 };
 
-export const QuizFlashcard = ({ categories, flashcardCountInEachCategory }: QuizFlashcardProps) => {
+export const QuizCollection = ({ categories, flashcardCountInEachCategory }: QuizCollectionProps) => {
   const [categoryList, setCategoryList] = useState<FlashcardCategory[]>(categories);
   const [flashcardCounts, setFlashcardCounts] = useState<number[]>(flashcardCountInEachCategory);
  

@@ -62,13 +62,9 @@ export async function editFlashcardSet(prevState: any, formData: FormData) {
     if (match) {
       const index = Number(match[1]);
       const field = match[2];
-  
-      if (!flashcards[index]) {
-        flashcards[index] = { id: 0, term: "", definition: "" };
-      }
-  
+
       if (field === "id") {
-        flashcards[index].id = Number(value); 
+        flashcards[index] = { id: Number(value), term: "", definition: "" }
       } else {
         flashcards[index][field as "term" | "definition"] = value as string;
       }
@@ -81,8 +77,8 @@ export async function editFlashcardSet(prevState: any, formData: FormData) {
   }
 
   await Promise.all(
-    flashcards.map((flashcard) => {
-      editFlashcard(categoryId.id, flashcard.id, flashcard.term, flashcard.definition)
+    flashcards.map(async (flashcard) => {
+      await editFlashcard(categoryId.id, flashcard.id, flashcard.term, flashcard.definition)
     })
   );
 

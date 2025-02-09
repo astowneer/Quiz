@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { getCategories } from "../prisma-db";
-import { QuizFlashcard } from "../ui/flashcard/QuizFlashcards";
+import { QuizCollection } from "../ui/flashcard/QuizCollection";
 import Loading from "./loading";
 
 export default function Quiz() {
@@ -14,5 +14,5 @@ export default function Quiz() {
 const QuizContent = async () => {
   const categories = await getCategories();
   const flashcardCountInEachCategory = categories.map(({ flashcards }) => flashcards.length);
-  return <QuizFlashcard categories={categories} flashcardCountInEachCategory={flashcardCountInEachCategory} />;
+  return <QuizCollection categories={categories} flashcardCountInEachCategory={flashcardCountInEachCategory} />;
 }

@@ -4,13 +4,13 @@ import { useState, useEffect, useActionState, Fragment } from "react";
 import { editFlashcardSet } from "@/app/actions/actions";
 import { Flashcard } from "@/app/lib/sampleData";
 
-interface FlashcardSetEditProps {
+interface EditFlashcardSetProps {
   categoryId: number;
   categoryName?: string;
   editedFlashcards: Flashcard[];
 };
 
-export const FlashcardSetEdit = ({ categoryId, categoryName, editedFlashcards }: FlashcardSetEditProps) => {
+export const EditFlashcardSet = ({ categoryId, categoryName, editedFlashcards }: EditFlashcardSetProps) => {
   const [categoryTitle, setCategoryTitle] = useState(categoryName);
   const [flashcards, setFlashcards] = useState<Flashcard[]>(editedFlashcards);
   const [draggedIndex, setDraggedIndex] = useState<number | null>(null);
@@ -26,7 +26,6 @@ export const FlashcardSetEdit = ({ categoryId, categoryName, editedFlashcards }:
   function adjustHeight(element: HTMLTextAreaElement | React.ChangeEvent<HTMLTextAreaElement>) {
     const target = element instanceof HTMLTextAreaElement ? element : element.target as HTMLTextAreaElement;
     target.style.height = "2rem"; 
-    // target.style.height = `${target.scrollHeight}px`;
     target.style.height = `${Math.max(target.scrollHeight, 32)}px`;
   }  
 

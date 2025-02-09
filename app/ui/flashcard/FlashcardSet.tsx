@@ -77,22 +77,3 @@ export const FlashcardSet = ({ categoryId, categoryName, flashcards }: Flashcard
     </div>  
   );
 }
-
-{/* <div 
-            className="w-full min-h-[300px] max-h-[300px] bg-red-700 rounded-lg text-bold text-2xl my-5 flex items-center py-5 select-none" 
-            onClick={toggleDefinition}
-          >
-            {isDefinitionVisible ? (
-              <div className="h-full w-full overflow-scroll flex justify-center items-center">
-                <p className="whitespace-pre-line">
-                  {flashcards[currentIndex].definition}
-                </p>
-              </div>
-            ) : (
-              <div className="h-full w-full overflow-scroll flex justify-center items-center">
-                <p className="whitespace-pre-line">
-                  {flashcards[currentIndex].title}
-                </p>
-              </div>
-            )}
-          </div> */}

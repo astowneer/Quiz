@@ -1,5 +1,5 @@
 import { getCategoryNameById, getFlashcardsById } from "@/app/prisma-db";
-import { FlashcardSetEdit } from "./FlashcardSetEdit";
+import { EditFlashcardSet } from "../../../ui/flashcard/EditFlashcardSet";
 
 interface QuizFlashcardProps {
   params: Promise<{ id: string }>
@@ -13,6 +13,11 @@ export default async function FlashcardsEdit({ params }: QuizFlashcardProps) {
     getFlashcardsById(categoryId)
   ]);
 
-  
-  return <FlashcardSetEdit categoryId={categoryId} categoryName={category?.title} editedFlashcards={flashcards} />
+  return (
+    <EditFlashcardSet 
+      categoryId={categoryId} 
+      categoryName={category?.title} 
+      editedFlashcards={flashcards} 
+    />
+  );
 }
